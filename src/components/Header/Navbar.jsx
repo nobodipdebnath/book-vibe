@@ -10,7 +10,9 @@ export const Navbar = () => {
   return (
     <nav className="flex justify-between items-center py-10">
       <div>
-        <h1 className="text-primary1 font-bold text-3xl">Book Vibe</h1>
+        <Link to='/'>
+          <h1 className="text-primary1 font-bold text-3xl">Book Vibe</h1>
+        </Link>
       </div>
       <ul className="flex items-center gap-4 text-primary2">
         {links}

@@ -6,10 +6,13 @@ import { getStoredBook } from "../../../utility/addToDB";
 import { Book } from "../Book/Book";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { ReadListBook } from "../ReadListBook/ReadListBook";
+import { WishListBook } from "../WishListBook/WishListBook";
 
 export const ReadList = () => {
   // fokira system
   const [readList, setReadList] = useState([]);
+  const [wishList, setWishList] = useState([]); 
+
   const data = useLoaderData();
   const [sort, setSort] = useState("");
 
@@ -24,17 +27,30 @@ export const ReadList = () => {
     setReadList(myReadList);
   }, []);
 
-  const handelSort = (type) =>{
+  useEffect(() => {
+    const storedBookData = getStoredBook();
+    const convertedStoredBook = storedBookData.map((id) => parseInt(id));
+
+    const myWishList = data.filter((book) =>
+      convertedStoredBook.includes(book.bookId)
+    );
+
+    setWishList(myWishList);
+  }, []);
+
+  const handelSort = (type) => {
     setSort(type);
-    if(type === 'pages'){
-      const sortByPage = [...readList].sort((a, b) => a.totalPages - b.totalPages);
+    if (type === "pages") {
+      const sortByPage = [...readList].sort(
+        (a, b) => a.totalPages - b.totalPages
+      );
       setReadList(sortByPage);
     }
-    if(type === 'ratings'){
+    if (type === "ratings") {
       const sortByRatings = [...readList].sort((a, b) => a.rating - b.rating);
       setReadList(sortByRatings);
     }
-  }
+  };
 
   return (
     <div>
@@ -43,23 +59,27 @@ export const ReadList = () => {
       </div>
       <div className="flex justify-center my-8">
         <div className="dropdown dropdown-center ">
-          <div tabIndex={0} role="button" className="py-3 px-10 bg-[#23BE0A] rounded-lg font-semibold text-white flex items-center gap-2">
-            <span>Sort By</span> <MdKeyboardArrowDown />  {sort ? sort : ''} 
+          <div
+            tabIndex={0}
+            role="button"
+            className="py-3 px-10 bg-[#23BE0A] rounded-lg font-semibold text-white flex items-center gap-2"
+          >
+            <span>Sort By : </span> {sort ? sort : ""}
           </div>
           <ul
             tabIndex="-1"
             className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
           >
             <li>
-              <a onClick={() =>handelSort('pages') }>Pages</a>
+              <a onClick={() => handelSort("pages")}>Pages</a>
             </li>
             <li>
-              <a onClick={() => handelSort('ratings')}>Rating</a>
+              <a onClick={() => handelSort("ratings")}>Rating</a>
             </li>
           </ul>
         </div>
       </div>
-      <Tabs className='border-[#1313134D]'>
+      <Tabs className="border-[#1313134D]">
         <TabList>
           <Tab>Read List</Tab>
           <Tab>Wish List</Tab>
@@ -68,12 +88,16 @@ export const ReadList = () => {
         <TabPanel>
           <div className="flex flex-col my-8 gap-6">
             {readList.map((book) => (
-            <ReadListBook book={book} key={book.bookId}></ReadListBook>
-          ))}
+              <ReadListBook book={book} key={book.bookId}></ReadListBook>
+            ))}
           </div>
         </TabPanel>
         <TabPanel>
-          <h2>My wish list</h2>
+          <div>
+            {
+              wishList.map(book => <WishListBook book={book} key={book.bookId}></WishListBook>)
+            }
+          </div>
         </TabPanel>
       </Tabs>
     </div>

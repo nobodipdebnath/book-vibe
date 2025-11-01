@@ -4,15 +4,11 @@ import { Link } from "react-router";
 export const Book = ({ book }) => {
 //   console.log(book);
   const {bookId,
-    author,
     bookName,
     category,
     image,
     publisher,
     rating,
-    review,
-    totalPages,
-    yearOfPublishing,
     tags,
   } = book;
   return (

@@ -10,6 +10,7 @@ export const BookDetails = () => {
   const { id } = useParams();
   const bookId = parseInt(id);
   const data = useLoaderData();
+
   // console.log(data);
   const singleBook = data.find((book) => book.bookId === bookId);
   const {author, bookName, category, review
@@ -19,7 +20,7 @@ export const BookDetails = () => {
 
   const handelMarkAsRead = (id) => {
     Swal.fire({
-      title: "Drag me!",
+      title: "Add to Read List !",
       icon: "success",
       draggable: true,
     });
@@ -65,7 +66,7 @@ export const BookDetails = () => {
           <div className="divider"></div>
             <div className="flex gap-6 items-center">
               <button onClick={() => handelMarkAsRead(id)} className="py-3 px-10 border rounded-xl font-semibold text-lg border-[#1313134D] hover:text-white hover:bg-[#50B1C9] duration-500 cursor-pointer">{" "}Read </button>
-              <button  className="py-3 px-10 border rounded-xl font-semibold text-lg border-[#1313134D] hover:text-white hover:bg-[#50B1C9] duration-500 cursor-pointer">WishList</button>
+              <button onClick={() => handelMarkAsRead(id)}  className="py-3 px-10 border rounded-xl font-semibold text-lg border-[#1313134D] hover:text-white hover:bg-[#50B1C9] duration-500 cursor-pointer">WishList</button>
             </div>
         </div>
       </div>
