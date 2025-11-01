@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+@plugin "daisyui";
+
+body {
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+.links{
+  padding: 12px 20px;
+  border: 1px solid transparent;
+  color: rgba(19, 19, 19, 0.8);
+  font-weight: 600;
+  border-radius: 12px;
+}
+.active {
+  border: 1px solid #23BE0A;
+  color: #23BE0A;
+  font-weight: 600;
+  border-radius: 12px;
+}
+@theme{
+  --color-primary1: rgba(19, 19, 19, 1)
+}
