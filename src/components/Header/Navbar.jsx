@@ -18,8 +18,12 @@ export const Navbar = () => {
         {links}
       </ul>
       <div className="flex gap-6 ">
-        <button className="py-4 px-8 bg-[#23BE0A] text-white font-semibold rounded-xl cursor-pointer hover:bg-[#1f9c0c] duration-500">Sign in</button>
-        <button className="py-4 px-8 bg-[#59C6D2] text-white font-semibold rounded-xl cursor-pointer hover:bg-[#2a929e] duration-500">Sign up</button>
+        <Link to='/login'>
+          <button className="py-4 px-8 bg-[#23BE0A] text-white font-semibold rounded-xl cursor-pointer hover:bg-[#1f9c0c] duration-500">Sign in</button>
+        </Link>
+        <Link to='/signup'>
+          <button className="py-4 px-8 bg-[#59C6D2] text-white font-semibold rounded-xl cursor-pointer hover:bg-[#2a929e] duration-500">Sign up</button>
+        </Link>
       </div>
     </nav>
   );

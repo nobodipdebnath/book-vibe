@@ -6,12 +6,11 @@ import { getStoredBook } from "../../../utility/addToDB";
 import { Book } from "../Book/Book";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { ReadListBook } from "../ReadListBook/ReadListBook";
-import { WishListBook } from "../WishListBook/WishListBook";
+import { Helmet } from "react-helmet-async";
 
 export const ReadList = () => {
   // fokira system
   const [readList, setReadList] = useState([]);
-  const [wishList, setWishList] = useState([]); 
 
   const data = useLoaderData();
   const [sort, setSort] = useState("");
@@ -25,17 +24,6 @@ export const ReadList = () => {
     );
 
     setReadList(myReadList);
-  }, []);
-
-  useEffect(() => {
-    const storedBookData = getStoredBook();
-    const convertedStoredBook = storedBookData.map((id) => parseInt(id));
-
-    const myWishList = data.filter((book) =>
-      convertedStoredBook.includes(book.bookId)
-    );
-
-    setWishList(myWishList);
   }, []);
 
   const handelSort = (type) => {
@@ -54,6 +42,9 @@ export const ReadList = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Book Vibe | Read List</title>
+      </Helmet>
       <div className="py-8 rounded-xl bg-gray-100">
         <h1 className="text-4xl font-bold text-center text-primary1">Books</h1>
       </div>
@@ -93,11 +84,7 @@ export const ReadList = () => {
           </div>
         </TabPanel>
         <TabPanel>
-          <div>
-            {
-              wishList.map(book => <WishListBook book={book} key={book.bookId}></WishListBook>)
-            }
-          </div>
+          <h1 className="text-center text-5xl font-semibold py-10">Wish List Book</h1>
         </TabPanel>
       </Tabs>
     </div>
