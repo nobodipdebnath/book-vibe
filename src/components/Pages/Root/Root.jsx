@@ -10,7 +10,7 @@ export const Root = () => {
       <Helmet>
         <title>Book Vibe | Home</title>
       </Helmet>
-      <div className="px-[10%]">
+      <div className="lg:px-[10%] md:px[8%] px-[5%]">
         <Navbar></Navbar>
         <Outlet></Outlet>
       </div>

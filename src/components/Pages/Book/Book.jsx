@@ -14,7 +14,7 @@ export const Book = ({ book }) => {
   return (
     <Link to={`/bookDetails/${bookId}`}>
       <div className="p-6 border  border-[#13131326] rounded-2xl flex flex-col gap-6">
-        <div className="rounded-xl py-8 px-26 bg-gray-100">
+        <div className="rounded-xl py-8 flex justify-center items-center lg:px-26 bg-gray-100">
           <img
           className=" object-cover hover:scale-120 h-[150px] duration-500 w-auto"
           src={image}

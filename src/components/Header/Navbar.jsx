@@ -14,10 +14,10 @@ export const Navbar = () => {
           <h1 className="text-primary1 font-bold text-3xl">Book Vibe</h1>
         </Link>
       </div>
-      <ul className="flex items-center gap-4 text-primary2">
+      <ul className="flex items-center hidden md:block gap-4 text-primary2">
         {links}
       </ul>
-      <div className="flex gap-6 ">
+      <div className="flex gap-6 hidden md:block">
         <Link to='/login'>
           <button className="py-4 px-8 bg-[#23BE0A] text-white font-semibold rounded-xl cursor-pointer hover:bg-[#1f9c0c] duration-500">Sign in</button>
         </Link>

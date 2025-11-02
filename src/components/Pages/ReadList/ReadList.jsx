@@ -24,7 +24,7 @@ export const ReadList = () => {
     );
 
     setReadList(myReadList);
-  }, []);
+  }, [data]);
 
   const handelSort = (type) => {
     setSort(type);
