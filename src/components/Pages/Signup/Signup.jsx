@@ -1,12 +1,8 @@
-import React from "react";
-import { Helmet } from "react-helmet-async";
+
 
 export const Signup = () => {
   return (
     <div className="flex justify-center py-10">
-      <Helmet>
-        <title>Book Vibe | Sing up</title>
-      </Helmet>
       <form className="w-2/5 shadow-xl rounded-xl p-8" action="">
         <h1 className="text-center text-4xl font-semibold text-primary1 py-4">
           Sign Up

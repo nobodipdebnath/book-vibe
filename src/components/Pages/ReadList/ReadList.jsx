@@ -6,7 +6,6 @@ import { getStoredBook } from "../../../utility/addToDB";
 import { Book } from "../Book/Book";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { ReadListBook } from "../ReadListBook/ReadListBook";
-import { Helmet } from "react-helmet-async";
 
 export const ReadList = () => {
   // fokira system
@@ -42,9 +41,6 @@ export const ReadList = () => {
 
   return (
     <div>
-      <Helmet>
-        <title>Book Vibe | Read List</title>
-      </Helmet>
       <div className="py-8 rounded-xl bg-gray-100">
         <h1 className="text-4xl font-bold text-center text-primary1">Books</h1>
       </div>
