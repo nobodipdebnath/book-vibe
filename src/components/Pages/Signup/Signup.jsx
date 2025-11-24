@@ -63,7 +63,7 @@ export const Signup = () => {
           />
         </div>
         <div className="mt-8">
-          <button className="w-full py-3 hover:bg-[#67dae7] duration-500 bg-[#59C6D2] text-white text-xl font-semibold rounded-xl ">
+          <button type="submit" className="w-full py-3 hover:bg-[#67dae7] duration-500 bg-[#59C6D2] text-white text-xl font-semibold rounded-xl ">
             Sign Up
           </button>
         </div>
